@@ -1,6 +1,7 @@
 package hello.proxy;
 
 import hello.proxy.config.AppV1Config;
+import hello.proxy.config.AppV2Config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Import;
  * !!!!!! scanBasePackages=hello.proxy.app !!!!!! 로 설정해야 한다. 그리고 필요한 Config 만 빈으로 등록하기 위해
  * !!!!! @Import(AppV1Config.class) !!!!! 를 사용한 것이다.
  */
-@Import(AppV1Config.class) // Config Import 스프링 빈으로 등록
+@Import({AppV1Config.class, AppV2Config.class}) // Config Import 스프링 빈으로 등록
 @SpringBootApplication(scanBasePackages = "hello.proxy.app") //주의
 public class ProxyApplication {
 
