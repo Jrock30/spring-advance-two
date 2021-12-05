@@ -4,6 +4,8 @@ import hello.proxy.config.AppV1Config;
 import hello.proxy.config.AppV2Config;
 import hello.proxy.config.v1_proxy.ConcreteProxyConfig;
 import hello.proxy.config.v1_proxy.InterfaceProxyConfig;
+import hello.proxy.config.v2_dynamicproxy.DynamicProxyBasicConfig;
+import hello.proxy.config.v2_dynamicproxy.DynamicProxyFilterConfig;
 import hello.proxy.trace.logtrace.LogTrace;
 import hello.proxy.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +27,9 @@ import org.springframework.context.annotation.Import;
  */
 //@Import({AppV1Config.class, AppV2Config.class}) // Config Import 스프링 빈으로 등록
 //@Import(InterfaceProxyConfig.class) // proxy config 스프링 빈으로 등록
-@Import(ConcreteProxyConfig.class) // proxy config 스프링 빈으로 등록
+//@Import(ConcreteProxyConfig.class) // proxy config 스프링 빈으로 등록
+//@Import(DynamicProxyBasicConfig.class) // proxy config 스프링 빈으로 등록
+@Import(DynamicProxyFilterConfig.class) // proxy config 스프링 빈으로 등록
 @SpringBootApplication(scanBasePackages = "hello.proxy.app") //주의
 public class ProxyApplication {
 
