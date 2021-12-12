@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * Spring AOP 적용 됨. (라이브러리 설치)
+ * Spring 빈 후처리기 자동 적용 됨. (라이브러리 설치)
  * proxy bean 자동 등록 (AnnotationAwareAspectJAutoProxyCreator)
  *
  * 중요: 포인트컷은 2가지에 사용된다
@@ -38,6 +38,9 @@ import org.springframework.context.annotation.Import;
  *   advisor1 의 포인트컷만 만족 프록시1개 생성, 프록시에 advisor1 만 포함
  *   advisor1 , advisor2 의 포인트컷을 모두 만족 프록시1개 생성, 프록시에 advisor1 , advisor2 모두 포함
  *   advisor1 , advisor2 의 포인트컷을 모두 만족하지 않음 프록시가 생성되지 않음
+ *
+ *  자동 프록시 생성기인 AnnotationAwareAspectJAutoProxyCreator 덕분에 개발자는 매우 편리하게 프록시를 적용할 수 있다. 이제 Advisor 만 스프링 빈으로 등록하면 된다.
+ *    Advisor = Pointcut + Advice
  */
 @Configuration
 @Import({AppV1Config.class, AppV2Config.class}) // 얘네가 controller, service, repository 빈 등록한다. 여기에 임포트 안하고 엔트리 포인트에 등록해도 됨
